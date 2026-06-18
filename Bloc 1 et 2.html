@@ -565,6 +565,7 @@
         function updateSlide() {
             slider.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
             progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            document.querySelector('.logo-fixed').style.display = currentSlide === totalSlides - 1 ? 'none' : 'block';
         }
 
         function nextSlide() {
