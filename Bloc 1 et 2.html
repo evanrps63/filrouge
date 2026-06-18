@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaturéVis Box - Stratégie 2025-2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #2d5a27;
+            --light-green: #e9f5db;
+            --terracotta: #e07a5f;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --swot-s: #d4edda; --swot-w: #fff3cd; --swot-o: #cce5ff; --swot-t: #f8d7da;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); overflow: hidden; background: #fff; }
+
+        /* Navigation */
+        .controls { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; gap: 15px; }
+        .btn { background: var(--green); color: white; border: none; padding: 15px 25px; cursor: pointer; border-radius: 50px; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
+        .btn:hover { background: var(--terracotta); transform: scale(1.1); }
+
+        .progress-bar { position: fixed; top: 0; left: 0; height: 8px; background: var(--terracotta); transition: 0.3s; z-index: 1001; }
+
+        /* Slides Container */
+        .slides-container { display: flex; transition: transform 0.6s ease-in-out; width: 3000%; height: 100vh; }
+
+        section { 
+            width: 3.333%; height: 100vh; padding: 80px; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; position: relative; overflow: hidden;
+        }
+
+        /* Typography */
+        h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; color: var(--green); margin-bottom: 20px; }
+        h2 { font-size: 3.5rem; color: var(--green); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        h3 { font-size: 2.2rem; color: var(--terracotta); margin-bottom: 20px; }
+        p, li { font-size: 1.6rem; line-height: 1.5; margin-bottom: 10px; }
+        .big-number { font-size: 5.5rem; font-weight: bold; color: var(--terracotta); line-height: 1; }
+
+        /* PESTEL & SWOT */
+        .pestel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1200px; }
+        .pestel-box { padding: 30px; border: 2px solid var(--green); border-radius: 15px; text-align: left; }
+        .pestel-box h4 { font-size: 1.8rem; color: var(--green); margin-bottom: 10px; border-bottom: 2px solid var(--terracotta); display: inline-block; }
+
+        .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; width: 100%; max-width: 1000px; border: 4px solid var(--green); }
+        .swot-item { padding: 40px; text-align: left; min-height: 250px; }
+        .swot-item h4 { font-size: 2rem; margin-bottom: 15px; text-decoration: underline; }
+
+        /* Personas */
+        .persona-container { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; width: 100%; max-width: 1200px; text-align: left; align-items: start; }
+        .persona-sidebar { background: var(--light-green); padding: 40px; border-radius: 20px; border-left: 10px solid var(--green); }
+        .persona-main h4 { color: var(--green); font-size: 2rem; margin: 20px 0 10px 0; border-bottom: 1px solid #ccc; }
+
+        /* Timeline & Table */
+        .timeline-large { display: flex; justify-content: space-between; width: 100%; max-width: 1300px; margin-top: 50px; position: relative; }
+        .timeline-large::after { content: ''; position: absolute; top: 40px; width: 100%; height: 6px; background: var(--green); z-index: -1; }
+        .time-step { background: white; border: 4px solid var(--green); padding: 25px; border-radius: 15px; width: 22%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        table { width: 100%; max-width: 1200px; border-collapse: collapse; background: white; font-size: 1.4rem; }
+        th { background: var(--green); color: white; padding: 20px; text-align: left; font-size: 1.6rem; }
+        td { border-bottom: 1px solid #ddd; padding: 20px; text-align: left; }
+        tr:nth-child(even) { background: var(--light-green); }
+        .total-row { font-weight: bold; background: var(--terracotta) !important; color: white; }
+
+        .tag { display: inline-block; background: var(--terracotta); color: white; padding: 8px 20px; border-radius: 50px; font-size: 1.2rem; margin: 5px; }
+
+        /* Logo fixe en haut à gauche */
+        .logo-fixed { position: fixed; top: 20px; left: 20px; z-index: 999; }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Logo ORIA fixe sur toutes les slides -->
+    <div class="logo-fixed">
+        <svg viewBox="0 0 300 100" style="width: 200px; height: auto;" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="60" style="font-family: 'Playfair Display', serif; font-size: 60px; font-weight: bold;" fill="#2d5a27">ORIA</text>
+            <text x="120" y="85" style="font-family: 'Montserrat', sans-serif; font-size: 25px;" fill="#1a1a1a">L'agence</text>
+            <line x1="10" y1="90" x2="280" y2="90" stroke="#e07a5f" stroke-width="4"/>
+        </svg>
+    </div>
+
+    <div class="slides-container" id="slider">
+        
+        <!-- PERSONNE 1 -->
+        <section style="background: linear-gradient(135deg, var(--light-green) 0%, #fff 100%);">
+            <svg viewBox="0 0 300 100" style="width: 280px; height: auto;" xmlns="http://www.w3.org/2000/svg">
+                <text x="10" y="60" style="font-family: 'Playfair Display', serif; font-size: 60px; font-weight: bold;" fill="#2d5a27">ORIA</text>
+                <text x="120" y="85" style="font-family: 'Montserrat', sans-serif; font-size: 25px;" fill="#1a1a1a">L'agence</text>
+                <line x1="10" y1="90" x2="280" y2="90" stroke="#e07a5f" stroke-width="4"/>
+            </svg>
+            <h1 style="margin-top:40px;">NaturéVis Box</h1>
+            <p style="font-size: 2rem;">FIL ROUGE 2025-2026</p>
+            <div style="margin-top: 40px;">
+                <span class="tag">Victoria P.</span><span class="tag">Heleana C.</span><span class="tag">Clara H.</span>
+                <span class="tag">Evan R.</span><span class="tag">Emma F.</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>L'agence ORIA</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h4>Clarté</h4><p>Un message simple est un message efficace.</p></div>
+                <div class="pestel-box"><h4>Ancrage</h4><p>Connecté aux réalités humaines et locales.</p></div>
+                <div class="pestel-box"><h4>Durabilité</h4><p>Construire pour le long terme.</p></div>
+            </div>
+            <div style="margin-top:50px; font-weight: bold; color: var(--green); font-size: 2rem;">
+                5 Profils • 1 Vision • 100% Engagement
+            </div>
+        </section>
+
+        <section>
+            <h2>Parcours de la présentation</h2>
+            <div class="timeline-large">
+                <div class="time-step"><h3>01</h3><p>Diagnostic & Enjeux</p></div>
+                <div class="time-step"><h3>02</h3><p>Cibles & Stratégie</p></div>
+                <div class="time-step"><h3>03</h3><p>Campagne & Médias</p></div>
+                <div class="time-step"><h3>04</h3><p>Budget & Pilotage</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>État des lieux</h2>
+            <div class="pestel-grid">
+                <div class="card"><span class="big-number">5,37M€</span><br>Chiffre d'Affaires</div>
+                <div class="card"><span class="big-number">+42%</span><br>Croissance Annuelle</div>
+                <div class="card"><span class="big-number">11%</span><br>Notoriété Spontanée</div>
+            </div>
+            <h3 style="margin-top:50px;">"Un moteur puissant, mais une carrosserie invisible."</h3>
+        </section>
+
+        <section>
+            <h2>Analyse PESTEL</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h4>Politique</h4><p>Green Deal Européen, Loi Climat & Résilience.</p></div>
+                <div class="pestel-box"><h4>Économique</h4><p>Marché Box (31Md$ en 2034), Inflation / Pouvoir d'achat.</p></div>
+                <div class="pestel-box"><h4>Socioculturel</h4><p>8/10 Français veulent consommer responsable.</p></div>
+                <div class="pestel-box"><h4>Technique</h4><p>Applications de traçabilité (Yuka), IA Recommandation.</p></div>
+                <div class="pestel-box"><h4>Environnement</h4><p>Circuit court (< 300km), Transparence Carbone.</p></div>
+                <div class="pestel-box"><h4>Légal</h4><p>Loi AGEC (Zéro Plastique), RGPD & IA Act.</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Matrice SWOT</h2>
+            <div class="swot-grid">
+                <div class="swot-item" style="background: var(--swot-s);">
+                    <h4>FORCES (Strengths)</h4>
+                    <p>• Sourcing local 70%<br>• Croissance agile<br>• ADN RSE authentique</p>
+                </div>
+                <div class="swot-item" style="background: var(--swot-w);">
+                    <h4>FAIBLESSES (Weaknesses)</h4>
+                    <p>• Notoriété faible (11%)<br>• Com' trop technique<br>• Budget marketing limité</p>
+                </div>
+                <div class="swot-item" style="background: var(--swot-o);">
+                    <h4>OPPORTUNITÉS (Opportunities)</h4>
+                    <p>• Marché B2B (Box Pro)<br>• IA pour personnalisation<br>• Expansion Belgique/Suisse</p>
+                </div>
+                <div class="swot-item" style="background: var(--swot-t);">
+                    <h4>MENACES (Threats)</h4>
+                    <p>• Concurrence grands groupes<br>• Saturation des contenus<br>• RGPD / IA Act contraignant</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERSONNE 2 -->
+        <section style="background: var(--gray);">
+            <h2>Nos deux segments clés</h2>
+            <div class="pestel-grid">
+                <div class="time-step" style="width: 100%;">
+                    <h3>Urbains (25-35)</h3>
+                    <p>Consommation individuelle, gain de temps, esthétique.</p>
+                </div>
+                <div class="time-step" style="width: 100%;">
+                    <h3>Familles (35-50)</h3>
+                    <p>Éducation, rituel partagé, gros volumes, transparence prix.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="persona-container">
+                <div class="persona-sidebar">
+                    <span style="font-size: 8rem;">👩‍💻</span>
+                    <h1>Camille</h1>
+                    <p>29 ans, Lyon</p>
+                    <p>Chargée RSE (SPA)</p>
+                    <p class="tag">Pressée</p><p class="tag">Instagram</p>
+                </div>
+                <div class="persona-main">
+                    <h4>Ses Motivations</h4>
+                    <p>Cherche une "bulle" de consommation éthique sans y passer ses week-ends.</p>
+                    <h4>Ses Freins</h4>
+                    <p>Le prix doit être justifié par une preuve immédiate. Manque de choix (2 options max).</p>
+                    <h4>Canaux</h4>
+                    <p>Instagram (Réels 15s), Pinterest (Inspiration déco), Trustpilot.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="persona-container">
+                <div class="persona-sidebar">
+                    <span style="font-size: 8rem;">👨‍👩‍👧</span>
+                    <h1>Thomas & Marie</h1>
+                    <p>40 & 37 ans, Nantes</p>
+                    <p>Cadres CSP+</p>
+                    <p class="tag">Éducation</p><p class="tag">Facebook</p>
+                </div>
+                <div class="persona-main">
+                    <h4>Leurs Motivations</h4>
+                    <p>Créer un rituel familial autour du "Zéro Déchet". Mesurer l'impact pour les enfants.</p>
+                    <h4>Leurs Freins</h4>
+                    <p>Contenances trop petites pour 4 personnes. Besoin de reporting RSE précis.</p>
+                    <h4>Canaux</h4>
+                    <p>Facebook (Groupes), LinkedIn (Thomas), YouTube (Tutos DIY), Presse Maison Verte.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Objectifs SMART (D'ici fin 2026)</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h3>Notoriété</h3><p class="big-number">20%</p><p>vs 11% aujourd'hui</p></div>
+                <div class="pestel-box"><h3>Acquisition</h3><p class="big-number">+25%</p><p>Abonnés actifs</p></div>
+                <div class="pestel-box"><h3>Fidélité</h3><p class="big-number">15%</p><p>Taux de rétention mensuel</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Orientation Stratégique Différenciante</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h3>01. Équivalences visuelles</h3><p>Impact carbone de chaque produit affiché en équivalences concrètes sur le QR code.</p></div>
+                <div class="pestel-box"><h3>02. Calculateur personnalisé</h3><p>Outil sur le site pour mesurer et suivre son impact environnemental réel.</p></div>
+                <div class="pestel-box"><h3>03. Rapport d'impact annuel</h3><p>Bilan clair et lisible envoyé chaque année à chaque abonné.</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Le Pivot Stratégique</h2>
+            <div style="font-size: 2.5rem; text-align: left; max-width: 1000px;">
+                <p>⚠️ <strong>D'une communication purement technique...</strong><br>(Chiffres CO2 complexes, QR codes bruts)</p>
+                <div style="height: 50px; border-left: 5px dashed var(--terracotta); margin-left: 50px;"></div>
+                <p>✨ <strong>...À une expérience fluide et émotionnelle.</strong><br>(Storytelling, Preuves par l'usage, Tiers de confiance)</p>
+            </div>
+        </section>
+
+        <!-- PERSONNE 3 -->
+        <section>
+            <h2>Dispositif Omnicanal</h2>
+            <img src="https://via.placeholder.com/900x400?text=SCHEMA+ECOSYSTEME+ORIA" alt="Schéma Omnicanal">
+            <p style="margin-top:30px;"><strong>Hub Central :</strong> Site & PWA "Mon Intérieur Responsable"</p>
+        </section>
+
+        <section>
+            <h2>Supports Internes : La Réassurance</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h4>Bibliothèque</h4><p>Archive des box passées pour rassurer sur la qualité.</p></div>
+                <div class="pestel-box"><h4>Newsletter</h4><p>Mise en avant des commerçants locaux partenaires pour favoriser la consommation de proximité.</p></div>
+                <div class="pestel-box"><h4>Passeport</h4><p>QR code par produit avec score <strong>Yuka</strong> intégré.</p></div>
+                <div class="pestel-box"><h4>PWA</h4><p>Interface personnalisée pour piloter son impact en temps réel.</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h1 style="color: var(--terracotta);">LA RENTRÉE À L'ENVERS</h1>
+            <h3>Concept de campagne S2 2026</h3>
+            <p style="font-size: 2rem; background: var(--light-green); padding: 20px;">"Désencombrer pour mieux reconstruire son quotidien."</p>
+        </section>
+
+        <section>
+            <h2>Timeline de Campagne</h2>
+            <div class="timeline-large">
+                <div class="time-step"><h3>Août</h3><p><strong>TEASING</strong><br>SEO & E-mailing base clients</p></div>
+                <div class="time-step"><h3>Sept.</h3><p><strong>ACTIVATION</strong><br>Instagram, Facebook & Pinterest Ads</p></div>
+                <div class="time-step"><h3>Oct.</h3><p><strong>FIDÉLISATION</strong><br>Programme 21 Jours Zéro Déchet</p></div>
+                <div class="time-step"><h3>Nov-Déc</h3><p><strong>CONVERSION</strong><br>Retargeting & Offres Noël</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contenus à impact</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h3>Urbains</h3><p>Réels 15s : "Mon setup éco en 3 minutes".</p></div>
+                <div class="pestel-box"><h3>Familles</h3><p>Facebook/Pinterest : "Le défi cuisine rapide à 4".</p></div>
+                <div class="pestel-box"><h3>Phygital</h3><p>Ateliers boutiques (Nantes, Paris, Bordeaux).</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Le Programme "21 Jours"</h2>
+            <div style="background: var(--light-green); padding: 50px; border-radius: 30px;">
+                <p>1 Micro-défi par semaine envoyé via PWA / Newsletter.</p>
+                <div class="timeline-large">
+                    <div class="time-step">Sem. 1 : Cuisine</div>
+                    <div class="time-step">Sem. 2 : Hygiène</div>
+                    <div class="time-step">Sem. 3 : Entretien</div>
+                </div>
+                <p style="margin-top:30px;"><strong>KPI :</strong> Taux de rétention cible > 80% sur 60 jours.</p>
+            </div>
+        </section>
+
+        <!-- PERSONNE 4 -->
+        <section>
+            <h2>Matrice de Partenaires</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box"><h4>Influence</h4><p>@transitiongreen, @bee.greener, @iznowgood</p></div>
+                <div class="pestel-box"><h4>Média</h4><p>Vert.eco, Reporterre, Basta !</p></div>
+                <div class="pestel-box"><h4>Tech</h4><p>Yuka (Validation externe santé/impact)</p></div>
+                <div class="pestel-box"><h4>Local</h4><p>Boutiques vrac & Ateliers ESAT</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Focus Influenceurs</h2>
+            <div class="pestel-grid">
+                <div class="card"><strong>@transitiongreen</strong><br>Cible Camille<br>Reach & Engagement</div>
+                <div class="card"><strong>@bee.greener</strong><br>Ancrage Nantes<br>Qualité & Sourcing</div>
+                <div class="card"><strong>@iznowgood</strong><br>Lifestyle Engagé<br>Conversion Add-on</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pourquoi ces partenariats ?</h2>
+            <div class="swot-grid">
+                <div class="pestel-box" style="border:none;"><h3>Proximité</h3><p>Sourcing < 300km respecté par l'image des partenaires.</p></div>
+                <div class="pestel-box" style="border:none;"><h3>Transparence</h3><p>Yuka lève le frein de la complexité technique.</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rétro-planning Général</h2>
+            <div style="width: 100%; max-width: 1200px;">
+                <img src="https://via.placeholder.com/1000x500?text=GANTT+CHART+ORIA+LARGE" alt="Gantt Chart">
+            </div>
+        </section>
+
+        <section>
+            <h2>Jalons 1 & 2 (Été)</h2>
+            <div class="pestel-grid">
+                <div class="time-step" style="width:100%;"><h3>JUILLET</h3><p>Cadrage stratégie • Optimisation PWA • Charte validée</p></div>
+                <div class="time-step" style="width:100%;"><h3>AOÛT</h3><p>Rédaction articles SEO • Intégration QR Codes • Teasing</p></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Jalons 3-5 (Rentrée & Clôture)</h2>
+            <div class="pestel-grid">
+                <div class="time-step" style="width:100%;"><h3>SEPTEMBRE</h3><p>Lancement ADS • Campagnes Influence • Ateliers physiques</p></div>
+                <div class="time-step" style="width:100%;"><h3>OCT-DÉC</h3><p>Relations Presse • Suivi Rétention • Bilan final Semestriel</p></div>
+            </div>
+        </section>
+
+        <!-- PERSONNE 5 -->
+        <section>
+            <h2>Répartition Budgétaire</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Axe Stratégique</th>
+                        <th>Budget Alloué</th>
+                        <th>Actions Clés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Médias & Acquisition</td>
+                        <td>35 500 €</td>
+                        <td>Instagram Ads, FB Retargeting, Pinterest</td>
+                    </tr>
+                    <tr>
+                        <td>Création de Contenu</td>
+                        <td>22 500 €</td>
+                        <td>Influenceurs, Vidéos Réels, SEO</td>
+                    </tr>
+                    <tr>
+                        <td>Outils & Technologie</td>
+                        <td>18 000 €</td>
+                        <td>PWA, CRM, Module IA RecommAI</td>
+                    </tr>
+                    <tr>
+                        <td>Impact Positif (RSE)</td>
+                        <td>12 000 €</td>
+                        <td>Partenariat Yuka, Bibliothèque confiance</td>
+                    </tr>
+                    <tr>
+                        <td>Événements & RP</td>
+                        <td>7 000 €</td>
+                        <td>Ateliers boutiques, Presse locale</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>TOTAL</td>
+                        <td>98 000 €</td>
+                        <td>Respect enveloppe initiale</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>KPIs de Performance</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box">
+                    <h4>Marketing</h4>
+                    <p>• Reach : 1M impressions<br>• CTR : > 2%<br>• CPA : < 15€</p>
+                </div>
+                <div class="pestel-box">
+                    <h4>Business</h4>
+                    <p>• CA cible : 8M€<br>• Conversion : +8%<br>• Add-ons : +20%</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>KPIs RSE & Engagement</h2>
+            <div class="pestel-grid">
+                <div class="pestel-box">
+                    <h4>Environnement</h4>
+                    <p>• CO2 évité / abonné<br>• 100% Sourcing EU<br>• Score Yuka moyen > 75/100</p>
+                </div>
+                <div class="pestel-box">
+                    <h4>Social</h4>
+                    <p>• 30% fournisseurs ESAT<br>• NPS Client > 45<br>• Taux parrainage : 15%</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pilotage Agile</h2>
+            <div style="background: var(--gray); padding: 40px; border-radius: 20px;">
+                <p><strong>1. Analyse hebdo :</strong> Écart KPI via Tableau de Bord.</p>
+                <p><strong>2. Boucle d'ajustement :</strong> Repriorisation Kanban.</p>
+                <p><strong>3. Flexibilité :</strong> Réserve de 3 000 € pour opportunités imprévues.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Synthèse Stratégique</h2>
+            <div style="font-size: 3.5rem; color: var(--green); line-height: 1.2;">
+                <strong>SIMPLIFIER</strong> la data.<br>
+                <strong>ÉMOUVOIR</strong> par le rituel.<br>
+                <strong>FIDÉLISER</strong> par la preuve.
+            </div>
+        </section>
+
+        <section style="background: var(--green); color: white;">
+            <h1 style="color: white;">MERCI !</h1>
+            <p>Avez-vous des questions ?</p>
+            <div style="margin-top: 50px;">
+                <img src="https://via.placeholder.com/150x60?text=ORIA" alt="Logo ORIA">
+            </div>
+            <p style="font-style: italic; margin-top: 30px;">"NaturéVis Box : de la transparence à la confiance."</p>
+        </section>
+
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="prevSlide()">PRÉC.</button>
+        <button class="btn" onclick="nextSlide()">SUIV.</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 30;
+        const slider = document.getElementById('slider');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateSlide() {
+            slider.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
