@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORIA - NaturéVis Box - Blocs 3 & 4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #2d5a27;
+            --light-green: #e9f5db;
+            --terracotta: #e07a5f;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --red-alert: #d00000;
+            --nb-slides: 30; /* Nombre total de slides */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); overflow: hidden; background: #fff; }
+
+        /* Navigation */
+        .controls { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; gap: 15px; }
+        .btn { background: var(--green); color: white; border: none; padding: 15px 30px; cursor: pointer; border-radius: 50px; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
+        .btn:hover { background: var(--terracotta); transform: scale(1.1); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 10px; background: var(--terracotta); transition: 0.3s; z-index: 1001; }
+
+        /* Slides Container */
+        .slides-container { 
+            display: flex; 
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+            width: calc(var(--nb-slides) * 100%); 
+            height: 100vh; 
+        }
+
+        section { 
+            width: calc(100% / var(--nb-slides)); 
+            height: 100vh; 
+            padding: 80px 100px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            position: relative; 
+            overflow: hidden;
+        }
+
+        /* SVG Logo ORIA */
+        .oria-logo { position: absolute; top: 40px; left: 50px; width: 180px; height: auto; }
+        .logo-white { filter: brightness(0) invert(1); }
+
+        /* Typography "Style Avant" */
+        h1 { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--green); margin-bottom: 20px; }
+        h2 { font-size: 3.5rem; color: var(--green); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; }
+        h3 { font-size: 2.5rem; color: var(--terracotta); margin-bottom: 25px; }
+        p, li { font-size: 1.8rem; line-height: 1.6; margin-bottom: 12px; }
+        .big-number { font-size: 6rem; font-weight: bold; color: var(--terracotta); line-height: 1; display: block; margin-bottom: 15px; }
+
+        /* Grids & Boxes "Style Avant" */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; max-width: 1400px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; width: 100%; max-width: 1400px; }
+        .box { padding: 40px; border-radius: 20px; border: 4px solid var(--green); text-align: left; background: white; box-shadow: 12px 12px 0px var(--light-green); }
+        .box-red { border-color: var(--red-alert); background: #fff5f5; box-shadow: 12px 12px 0px #ffcccc; }
+        .box h4 { color: var(--green); margin-bottom: 15px; font-size: 2.2rem; border-bottom: 4px solid var(--terracotta); display: inline-block; }
+
+        /* Architecture Flow */
+        .arch-flow { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; max-width: 1500px; }
+        .arch-box { flex: 1; padding: 30px; border: 4px solid var(--green); border-radius: 15px; font-weight: bold; font-size: 1.6rem; background: white; box-shadow: 8px 8px 0px var(--light-green); }
+
+        /* Tables */
+        table { width: 100%; max-width: 1300px; border-collapse: collapse; background: white; font-size: 1.6rem; margin-top: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        th { background: var(--green); color: white; padding: 25px; text-align: left; font-size: 1.8rem; }
+        td { border-bottom: 1px solid #ddd; padding: 25px; text-align: left; }
+
+        .tag { display: inline-block; background: var(--terracotta); color: white; padding: 10px 25px; border-radius: 50px; font-size: 1.4rem; margin: 10px; font-weight: bold; }
+        .arrow { font-size: 4rem; color: var(--terracotta); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Template du Logo SVG pour injection -->
+    <template id="oria-logo-tpl">
+        <svg class="oria-logo" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="60" font-family="Playfair Display, serif" font-size="60" font-weight="bold" fill="currentColor">ORIA</text>
+            <text x="120" y="85" font-family="Montserrat, sans-serif" font-size="25" fill="currentColor">L'agence</text>
+            <line x1="10" y1="90" x2="280" y2="90" stroke="#e07a5f" stroke-width="4"/>
+        </svg>
+    </template>
+
+    <div class="slides-container" id="slider">
+        
+        <!-- MICRO 1: Introduction -->
+        <section style="background: linear-gradient(135deg, var(--light-green) 0%, #fff 100%);">
+            <h1 style="font-size: 7rem;">NaturéVis Box</h1>
+            <h3 style="color: var(--dark); font-size: 3rem;">STRATÉGIE DATA & PILOTAGE</h3>
+            <p style="font-size: 2.5rem; margin-top: 20px;">Blocs 3 & 4 | Fil Rouge 2025-2026</p>
+            <div style="margin-top: 60px;">
+                <span class="tag">Victoria P.</span><span class="tag">Heleana C.</span><span class="tag">Clara H.</span>
+                <span class="tag">Evan R.</span><span class="tag">Emma F.</span>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Sommaire Visuel</h2>
+            <div class="grid-4">
+                <div class="box"><h4>01</h4><p>Diagnostic & Gouvernance</p></div>
+                <div class="box"><h4>02</h4><p>Automation Marketing</p></div>
+                <div class="box"><h4>03</h4><p>IA & POC RecommAI</p></div>
+                <div class="box"><h4>04</h4><p>Organisation & Pilotage</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h3 style="font-size: 3.5rem;">LA PROBLÉMATIQUE</h3>
+            <h1 style="font-size: 4.5rem; max-width: 1200px;">"Comment transformer la data en expérience personnalisée tout en garantissant une éthique RGPD ?"</h1>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Qualité des données</h2>
+            <div class="grid-4">
+                <div class="box"><span class="big-number">92%</span><h4>CRM</h4><p>Base abonnés</p></div>
+                <div class="box"><span class="big-number">88%</span><h4>PWA</h4><p>Comportement</p></div>
+                <div class="box"><span class="big-number">85%</span><h4>SAV</h4><p>Satisfaction</p></div>
+                <div class="box"><span class="big-number">80%</span><h4>Flux ESG</h4><p>Carbone</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Les 4 Failles</h2>
+            <div class="grid-4">
+                <div class="box box-red"><h4>🔴 Doublons</h4><p>Conflits CRM/PWA</p></div>
+                <div class="box box-red"><h4>⏱️ Latence</h4><p>MAJ (12h-24h)</p></div>
+                <div class="box box-red"><h4>📋 SAV</h4><p>Données incomplètes</p></div>
+                <div class="box box-red"><h4>🌿 ESG</h4><p>Pas d'automatisation</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Risques RGPD</h2>
+            <div class="grid-3">
+                <div class="box box-red"><h3>Consentement</h3><p>PWA non tracé. Risque 4% CA.</p></div>
+                <div class="box box-red"><h3>Chiffrement</h3><p>Flux non sécurisés en transit.</p></div>
+                <div class="box box-red"><h3>Purge</h3><p>Absence d'auto-suppression.</p></div>
+            </div>
+        </section>
+
+        <!-- MICRO 2: Architecture & Scénarios -->
+        <section style="background: var(--light-green);"><div class="logo-ph"></div><h2>Architecture Cible</h2>
+            <div class="arch-flow">
+                <div class="arch-box">SOURCES</div><div class="arrow">→</div>
+                <div class="arch-box">NETTOYAGE</div><div class="arrow">→</div>
+                <div class="arch-box" style="border-color: var(--terracotta)">IA ENGINE</div><div class="arrow">→</div>
+                <div class="arch-box">CDP ACTIVATION</div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Gouvernance</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Outils</h4><p>CDP, PredictX, RecommAI</p></div>
+                <div class="box"><h4>Rôles</h4><p>Data Owner, Steward, DPO</p></div>
+                <div class="box"><h4>Règles</h4><p>Qualité 95/100, Purge auto</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Scénario 1 : Anti-Churn</h2>
+            <div class="box" style="width: 100%; max-width: 1000px; text-align: center;">
+                <h3 style="color: var(--red-alert)">ALERTE RISQUE > 70%</h3>
+                <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px;">
+                    <div class="tag">J+0 : Email</div><div class="tag">J+4 : SMS</div><div class="tag">J+8 : NPS</div>
+                </div>
+                <p style="margin-top: 40px; font-weight: bold;">Objectif : Rétention 60j > 80%</p>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Scénario 2 : Add-On</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Déclencheur</h4><p>Consultation produit sans achat</p></div>
+                <div class="box"><h4>Activation</h4><p>Push PWA + Email IA</p></div>
+                <div class="box"><h4>KPI</h4><p>Conversion > 8%</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Scénario 3 : Abandon</h2>
+            <div class="grid-2" style="display: flex; gap: 40px;">
+                <div class="box" style="flex: 1;"><h4>Panier simple</h4><p>Relance à T+30 min</p></div>
+                <div class="box" style="flex: 1; border-color: var(--terracotta);"><h4>Échec Paiement</h4><p>Assistance immédiate</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Synthèse Scénarios</h2>
+            <table>
+                <tr><th>Cible</th><th>Objectif</th><th>Base Légale</th></tr>
+                <tr><td>Anti-Churn</td><td>Fidéliser</td><td>Intérêt Légitime</td></tr>
+                <tr><td>Add-on</td><td>Panier +20%</td><td>Consentement</td></tr>
+                <tr><td>Abandon</td><td>Récup. 15%</td><td>Contrat</td></tr>
+            </table>
+        </section>
+
+        <!-- MICRO 3: IA & POC -->
+        <section><div class="logo-ph"></div><h2>Le Choix de l'IA</h2>
+            <div class="grid-3">
+                <div class="box"><h3>PredictX</h3><p>Focus Rétention</p></div>
+                <div class="box" style="border-color: var(--terracotta); transform: scale(1.1);"><h3>RecommAI</h3><p><strong>PRIORITÉ N°1</strong></p></div>
+                <div class="box" style="opacity: 0.5;"><h3>ContentGen</h3><p>Prod. Contenu</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Pourquoi RecommAI ?</h2>
+            <div class="grid-2" style="display: flex; gap: 40px;">
+                <div class="box"><h4>Impact Direct</h4><p>Augmente les ventes add-on immédiatement.</p></div>
+                <div class="box"><h4>Expérience</h4><p>Personnalisation réelle vs catalogue générique.</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>POC (Test 6 sem.)</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Groupe TEST</h4><p>500 abonnés ciblés</p></div>
+                <div class="box"><h4>TÉMOIN</h4><p>500 abonnés neutres</p></div>
+                <div class="box"><h4>Budget</h4><p>1 500 €</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Fonctionnement POC</h2>
+            <div class="arch-flow">
+                <div class="arch-box">Consultation</div><div class="arrow">→</div>
+                <div class="arch-box" style="background: var(--terracotta); color: white;">Suggestion IA</div><div class="arrow">→</div>
+                <div class="arch-box">Achat Add-on</div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>KPIs de succès</h2>
+            <div class="grid-3">
+                <div class="box"><span class="big-number">8%</span><h4>Conversion</h4></div>
+                <div class="box"><span class="big-number">+20%</span><h4>Panier moyen</h4></div>
+                <div class="box"><span class="big-number">15%</span><h4>Clics PWA</h4></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Décision Post-POC</h2>
+            <div class="grid-3">
+                <div class="box" style="background: #d4edda;"><h4>VALIDE</h4><p>Déploiement</p></div>
+                <div class="box" style="background: #fff3cd;"><h4>PARTIEL</h4><p>Ajustement IA</p></div>
+                <div class="box" style="background: #f8d7da;"><h4>ECHEC</h4><p>Arrêt solution</p></div>
+            </div>
+        </section>
+
+        <!-- MICRO 4: Organisation -->
+        <section><div class="logo-ph"></div><h2>Organisation</h2>
+            <div style="display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 1000px;">
+                <div class="arch-box" style="background: var(--dark); color: white;">DIRECTION / SPONSORS</div>
+                <div class="arrow" style="font-size: 2rem;">↓</div>
+                <div class="arch-box" style="background: var(--terracotta); color: white;">CHEF DE PROJET (Coordination)</div>
+                <div class="arrow" style="font-size: 2rem;">↓</div>
+                <div style="display: flex; gap: 20px;">
+                    <div class="box" style="flex:1; text-align: center;">Marketing</div>
+                    <div class="box" style="flex:1; text-align: center;">Data</div>
+                    <div class="box" style="flex:1; text-align: center;">RSE</div>
+                </div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Matrice RACI</h2>
+            <table>
+                <tr><th>Livrable</th><th>Chef Proj</th><th>Data</th><th>Marketing</th></tr>
+                <tr><td>Stratégie Data</td><td>R</td><td>C</td><td>C</td></tr>
+                <tr><td>Automation</td><td>A</td><td>R</td><td>C</td></tr>
+                <tr><td>Reporting ESG</td><td>C</td><td>C</td><td>R</td></tr>
+            </table>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Rythme de Pilotage</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Lancement</h4><p>Juillet (3h)</p></div>
+                <div class="box"><h4>Mensuel</h4><p>Comité (1h30)</p></div>
+                <div class="box"><h4>Flash</h4><p>Hebdo (15min)</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Kit Outils</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Notion</h4><p>Kanban & REX</p></div>
+                <div class="box"><h4>Teams</h4><p>Flux & Daily</p></div>
+                <div class="box"><h4>Base Doc</h4><p>Unique & Centralisée</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Communication</h2>
+            <div class="grid-2" style="display: flex; gap: 40px;">
+                <div class="box"><h4>INTERNE</h4><p>Teams / Emails / Daily</p></div>
+                <div class="box"><h4>EXTERNE</h4><p>Push / Newsletters / Médias</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>RSE Partenaires</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Sourcing</h4><p>Hors UE exclu</p></div>
+                <div class="box"><h4>Web</h4><p>WCAG AA</p></div>
+                <div class="box"><h4>Inclusion</h4><p>Audit ESAT</p></div>
+            </div>
+        </section>
+
+        <!-- MICRO 5: Risques & Pilotage -->
+        <section><div class="logo-ph"></div><h2>Matrice Risques</h2>
+            <p>Analyse de probabilité et d'impact sur les 6 jalons.</p>
+            <div class="grid-4" style="height: 100px; align-items: stretch;">
+                <div style="background: #ffcccc; padding: 20px;">CRITIQUE</div>
+                <div style="background: #fff3cd; padding: 20px;">MAJEUR</div>
+                <div style="background: #d1ecf1; padding: 20px;">MOYEN</div>
+                <div style="background: #d4edda; padding: 20px;">FAIBLE</div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Top 3 Risques</h2>
+            <div class="grid-3">
+                <div class="box box-red"><h4>Influence</h4><p>Bad buzz / Valeurs</p></div>
+                <div class="box box-red"><h4>Presse</h4><p>Faibles retombées</p></div>
+                <div class="box box-red"><h4>Budget</h4><p>Dépassement ADS</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Tableau de Pilotage</h2>
+            <div class="grid-4">
+                <div class="box"><span class="big-number">58%</span><p>Avancement</p></div>
+                <div class="box"><span class="big-number">3.5</span><p>Vélocité</p></div>
+                <div class="box"><span class="big-number">50%</span><p>Budget consommé</p></div>
+                <div class="box"><span class="big-number">1/5</span><p>Jalons terminés</p></div>
+            </div>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Agilité (Burndown)</h2>
+            <div style="width: 100%; max-width: 800px; height: 300px; border-left: 5px solid var(--dark); border-bottom: 5px solid var(--dark); position: relative; margin: 40px auto;">
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; border-top: 4px dashed #ccc; transform: rotate(18deg); transform-origin: top left;"></div>
+                <div style="position:absolute; top:0; left:0; width:65%; height:100%; border-top: 6px solid var(--terracotta); transform: rotate(14deg); transform-origin: top left;"></div>
+                <p style="position: absolute; bottom: -40px; right: 0;">TEMPS (S2 2026)</p>
+                <p style="position: absolute; top: -40px; left: 0;">TÂCHES RESTANTES</p>
+            </div>
+            <p>Vitesse moyenne : 3.5 tâches / sprint</p>
+        </section>
+
+        <section><div class="logo-ph"></div><h2>Rétrospective REX</h2>
+            <div class="grid-3">
+                <div class="box" style="border-color: #2d5a27;"><h4>🟢 START</h4><p>Nouvelles pratiques</p></div>
+                <div class="box" style="border-color: #d00000;"><h4>🔴 STOP</h4><p>Freins d'efficacité</p></div>
+                <div class="box" style="border-color: #0077b6;"><h4>🔵 CONTINUE</h4><p>Ce qui fonctionne</p></div>
+            </div>
+        </section>
+
+        <section style="background: var(--green); color: white;">
+            <div class="logo-ph logo-white" style="position: static; margin-bottom: 40px;"></div>
+            <h1 style="color: white; font-size: 5rem;">GOUVERNER • AUTOMATISER • PERFORMER</h1>
+            <p style="font-size: 2.5rem; margin-top: 30px;">NaturéVis Box : Vers les 8M€ de CA.</p>
+            <h2 style="color: white; margin-top: 50px;">MERCI !</h2>
+        </section>
+
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="prevSlide()">PRÉCÉDENT</button>
+        <button class="btn" onclick="nextSlide()">SUIVANT</button>
+    </div>
+
+    <script>
+        // Injection du Logo SVG partout
+        const logoTpl = document.getElementById('oria-logo-tpl').content;
+        document.querySelectorAll('.logo-ph').forEach(ph => {
+            const clone = logoTpl.cloneNode(true);
+            if(ph.classList.contains('logo-white')) {
+                clone.querySelector('svg').classList.add('logo-white');
+                clone.querySelectorAll('text').forEach(t => t.setAttribute('fill', 'white'));
+            } else {
+                clone.querySelector('svg').style.fill = "#2d5a27";
+                clone.querySelectorAll('text').forEach(t => {
+                    if(t.getAttribute('font-size') == "25") t.setAttribute('fill', '#1a1a1a');
+                    else t.setAttribute('fill', '#2d5a27');
+                });
+            }
+            ph.appendChild(clone);
+        });
+
+        let currentSlide = 0;
+        const totalSlides = 30; 
+        const slider = document.getElementById('slider');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateSlide() {
+            // Le calcul (100 / totalSlides) garantit de ne pas sauter de slides
+            slider.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+        }
+
+        function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateSlide(); } }
+        function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlide(); } }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+        
+        updateSlide();
+    </script>
+</body>
+</html>
