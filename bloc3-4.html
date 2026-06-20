@@ -105,15 +105,19 @@
 
         <!-- 2. SOMMAIRE -->
         <section><div class="logo-ph"></div><h2>Notre démarche</h2>
-            <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; max-width:1400px;">
-                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">01</h4><p>Diagnostic data</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">02</h4><p>Architecture cible</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">03</h4><p>Scénarios d'automatisation</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">04</h4><p>Solution IA & POC</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">05</h4><p>Organisation & gouvernance</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">06</h4><p>Calendrier & communication</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">07</h4><p>Risques & pilotage</p></div>
-                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">08</h4><p>Tableau de bord & amélioration continue</p></div>
+            <div style="width:100%; max-width:1300px;">
+                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:15px; margin-bottom:15px;">
+                    <div class="box" style="text-align:center; padding:25px;"><h4>01</h4><p style="font-size:1.4rem;">Diagnostic data</p></div>
+                    <div class="box" style="text-align:center; padding:25px;"><h4>02</h4><p style="font-size:1.4rem;">Architecture cible</p></div>
+                    <div class="box" style="text-align:center; padding:25px;"><h4>03</h4><p style="font-size:1.4rem;">Scénarios d'automatisation</p></div>
+                    <div class="box" style="text-align:center; padding:25px;"><h4>04</h4><p style="font-size:1.4rem;">Solution IA & POC</p></div>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:15px;">
+                    <div class="box" style="text-align:center; padding:25px; border-color:var(--terracotta);"><h4 style="color:var(--terracotta);">05</h4><p style="font-size:1.4rem;">Organisation & gouvernance</p></div>
+                    <div class="box" style="text-align:center; padding:25px; border-color:var(--terracotta);"><h4 style="color:var(--terracotta);">06</h4><p style="font-size:1.4rem;">Calendrier & communication</p></div>
+                    <div class="box" style="text-align:center; padding:25px; border-color:var(--terracotta);"><h4 style="color:var(--terracotta);">07</h4><p style="font-size:1.4rem;">Risques & pilotage</p></div>
+                    <div class="box" style="text-align:center; padding:25px; border-color:var(--terracotta);"><h4 style="color:var(--terracotta);">08</h4><p style="font-size:1.4rem;">Tableau de bord</p></div>
+                </div>
             </div>
         </section>
 
@@ -124,17 +128,49 @@
 
         <!-- 4. DIAGNOSTIC -->
         <section><div class="logo-ph"></div><h2>Diagnostic : un écosystème data fragmenté</h2>
-            <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; max-width:1400px; margin-bottom:20px;">
-                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">92%</span><h4>CRM</h4><p>Base abonnés</p></div>
-                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">88%</span><h4>PWA</h4><p>Comportement</p></div>
-                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">84%</span><h4>Email</h4><p>Engagement</p></div>
-                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">85%</span><h4>SAV</h4><p>Satisfaction</p></div>
-                <div class="box" style="flex:1; min-width:150px; text-align:center; border-color:var(--red-alert);"><span class="big-number" style="font-size:3rem; color:var(--red-alert);">76%</span><h4>Social Ads</h4><p>Conversion</p></div>
-                <div class="box" style="flex:1; min-width:150px; text-align:center; border-color:var(--red-alert);"><span class="big-number" style="font-size:3rem; color:var(--red-alert);">80%</span><h4>ESG</h4><p>Carbone</p></div>
-            </div>
-            <div style="display:flex; gap:20px; justify-content:center;">
-                <div style="background:var(--light-green); border-radius:12px; padding:12px 25px; font-size:1.4rem;"><strong>Score global : 84/100</strong></div>
-                <div style="background:#fff3cd; border-radius:12px; padding:12px 25px; font-size:1.4rem;">3 sources prioritaires : SAV · Social Ads · ESG</div>
+            <div style="width:100%; max-width:1300px;">
+                <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:white; border:3px solid var(--green); border-radius:15px; padding:20px;">
+                        <div style="font-size:2.5rem; font-weight:bold; color:var(--green);">92%</div>
+                        <div style="font-weight:bold; margin:6px 0; font-size:1.4rem;">CRM</div>
+                        <div style="font-size:1.2rem; color:#666;">Base abonnés</div>
+                        <div style="background:var(--green); height:6px; border-radius:3px; margin-top:10px; width:92%;"></div>
+                    </div>
+                    <div style="text-align:center; background:white; border:3px solid var(--green); border-radius:15px; padding:20px;">
+                        <div style="font-size:2.5rem; font-weight:bold; color:var(--green);">88%</div>
+                        <div style="font-weight:bold; margin:6px 0; font-size:1.4rem;">PWA</div>
+                        <div style="font-size:1.2rem; color:#666;">Comportement</div>
+                        <div style="background:var(--green); height:6px; border-radius:3px; margin-top:10px; width:88%;"></div>
+                    </div>
+                    <div style="text-align:center; background:white; border:3px solid var(--green); border-radius:15px; padding:20px;">
+                        <div style="font-size:2.5rem; font-weight:bold; color:var(--green);">84%</div>
+                        <div style="font-weight:bold; margin:6px 0; font-size:1.4rem;">Email</div>
+                        <div style="font-size:1.2rem; color:#666;">Engagement</div>
+                        <div style="background:var(--green); height:6px; border-radius:3px; margin-top:10px; width:84%;"></div>
+                    </div>
+                    <div style="text-align:center; background:#fff5f5; border:3px solid var(--red-alert); border-radius:15px; padding:20px;">
+                        <div style="font-size:2.5rem; font-weight:bold; color:var(--red-alert);">85%</div>
+                        <div style="font-weight:bold; margin:6px 0; font-size:1.4rem;">SAV</div>
+                        <div style="font-size:1.2rem; color:#666;">Satisfaction</div>
+                        <div style="background:var(--red-alert); height:6px; border-radius:3px; margin-top:10px; width:85%;"></div>
+                    </div>
+                    <div style="text-align:center; background:#fff5f5; border:3px solid var(--red-alert); border-radius:15px; padding:20px;">
+                        <div style="font-size:2.5rem; font-weight:bold; color:var(--red-alert);">76%</div>
+                        <div style="font-weight:bold; margin:6px 0; font-size:1.4rem;">Social Ads</div>
+                        <div style="font-size:1.2rem; color:#666;">Conversion</div>
+                        <div style="background:var(--red-alert); height:6px; border-radius:3px; margin-top:10px; width:76%;"></div>
+                    </div>
+                    <div style="text-align:center; background:#fff5f5; border:3px solid var(--red-alert); border-radius:15px; padding:20px;">
+                        <div style="font-size:2.5rem; font-weight:bold; color:var(--red-alert);">80%</div>
+                        <div style="font-weight:bold; margin:6px 0; font-size:1.4rem;">ESG</div>
+                        <div style="font-size:1.2rem; color:#666;">Carbone</div>
+                        <div style="background:var(--red-alert); height:6px; border-radius:3px; margin-top:10px; width:80%;"></div>
+                    </div>
+                </div>
+                <div style="display:flex; gap:20px; justify-content:center;">
+                    <div style="background:var(--light-green); border-radius:12px; padding:14px 30px; font-size:1.5rem; font-weight:bold; color:var(--green);">Score global : 84/100</div>
+                    <div style="background:#fff3cd; border-radius:12px; padding:14px 30px; font-size:1.4rem;">⚠️ 3 sources prioritaires à corriger : SAV · Social Ads · ESG</div>
+                </div>
             </div>
         </section>
 
@@ -246,11 +282,21 @@
         </section>
 
         <!-- 15. TRANSITION -->
-        <section style="background: var(--dark); color: white;">
-            <div class="logo-ph logo-white"></div>
-            <h2 style="color: white; font-size: 3rem;">La data bien gouvernée.</h2>
-            <h2 style="color: var(--terracotta); font-size: 3rem; margin-top: 10px;">Maintenant, organisons l'exécution.</h2>
-            <p style="color: rgba(255,255,255,0.6); margin-top: 40px; font-size: 1.6rem;">Organisation · Calendrier · Risques · Pilotage</p>
+        <section style="background: linear-gradient(135deg, var(--green) 0%, #1a3d16 100%);">
+            <svg viewBox="0 0 300 100" style="width:180px; height:auto; margin-bottom:30px;" xmlns="http://www.w3.org/2000/svg">
+                <text x="10" y="60" font-family="Playfair Display, serif" font-size="60" font-weight="bold" fill="white">ORIA</text>
+                <text x="120" y="85" font-family="Montserrat, sans-serif" font-size="25" fill="rgba(255,255,255,0.8)">L'agence</text>
+                <line x1="10" y1="90" x2="280" y2="90" stroke="#e07a5f" stroke-width="4"/>
+            </svg>
+            <h1 style="color:white; font-size:4rem; margin-bottom:15px;">La stratégie est posée.</h1>
+            <div style="width:80px; height:5px; background:var(--terracotta); border-radius:10px; margin:0 auto 30px;"></div>
+            <h2 style="color:var(--terracotta); font-size:3rem; text-transform:none; letter-spacing:0; font-weight:700;">Organisons maintenant l'exécution.</h2>
+            <div style="display:flex; gap:25px; margin-top:50px;">
+                <span style="background:rgba(255,255,255,0.15); color:white; padding:12px 25px; border-radius:50px; font-size:1.4rem;">Organisation</span>
+                <span style="background:rgba(255,255,255,0.15); color:white; padding:12px 25px; border-radius:50px; font-size:1.4rem;">Calendrier</span>
+                <span style="background:rgba(255,255,255,0.15); color:white; padding:12px 25px; border-radius:50px; font-size:1.4rem;">Risques</span>
+                <span style="background:rgba(255,255,255,0.15); color:white; padding:12px 25px; border-radius:50px; font-size:1.4rem;">Pilotage</span>
+            </div>
         </section>
 
         <!-- 16. ORGANIGRAMME -->
@@ -297,22 +343,37 @@
         </section>
 
         <!-- 20. GESTION DES RISQUES -->
-        <section><div class="logo-ph"></div><h2>Gestion des risques — Heat Map</h2>
-            <div style="display:flex; gap:40px; align-items:flex-start; width:100%; max-width:1300px;">
-                <div style="flex:1;">
-                    <p style="font-size:1.4rem; margin-bottom:20px;"><strong>Méthode :</strong> Probabilité × Impact sur les 6 jalons</p>
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; height:200px;">
-                        <div style="background:#f8d7da; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🔴 CRITIQUE</div>
-                        <div style="background:#fff3cd; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🟠 MAJEUR</div>
-                        <div style="background:#d1ecf1; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🟡 MOYEN</div>
-                        <div style="background:#d4edda; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🟢 FAIBLE</div>
+        <section><div class="logo-ph"></div><h2>Gestion des risques</h2>
+            <div style="width:100%; max-width:1300px;">
+                <p style="font-size:1.3rem; color:#666; margin-bottom:25px;">Méthode : Probabilité × Impact · évalué sur les 6 jalons du projet</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
+                    <div style="background:#f8d7da; border-left:8px solid var(--red-alert); border-radius:12px; padding:25px; text-align:left;">
+                        <div style="font-size:1.3rem; font-weight:bold; color:var(--red-alert); margin-bottom:8px;">🔴 CRITIQUE — Influence</div>
+                        <p style="font-size:1.3rem; margin:0;">Bad buzz incompatible avec les valeurs RSE</p>
+                        <p style="font-size:1.2rem; color:#888; margin-top:8px;">→ Plan de crise préparé</p>
                     </div>
-                </div>
-                <div style="flex:2;">
-                    <p style="font-size:1.4rem; margin-bottom:15px;"><strong>Top 3 risques critiques</strong></p>
-                    <div class="box box-red" style="margin-bottom:15px;"><h4>Influence</h4><p>Bad buzz incompatible avec les valeurs — Plan de crise préparé</p></div>
-                    <div class="box box-red" style="margin-bottom:15px;"><h4>Budget ADS</h4><p>Dépassement probable — Réserve de 3 000 € allouée</p></div>
-                    <div class="box box-red"><h4>Adoption IA</h4><p>Résistance interne — Formation équipe prévue dès Phase 1</p></div>
+                    <div style="background:#f8d7da; border-left:8px solid var(--red-alert); border-radius:12px; padding:25px; text-align:left;">
+                        <div style="font-size:1.3rem; font-weight:bold; color:var(--red-alert); margin-bottom:8px;">🔴 CRITIQUE — Budget ADS</div>
+                        <p style="font-size:1.3rem; margin:0;">Dépassement probable sur les campagnes paid</p>
+                        <p style="font-size:1.2rem; color:#888; margin-top:8px;">→ Réserve de 3 000 € allouée</p>
+                    </div>
+                    <div style="background:#f8d7da; border-left:8px solid var(--red-alert); border-radius:12px; padding:25px; text-align:left;">
+                        <div style="font-size:1.3rem; font-weight:bold; color:var(--red-alert); margin-bottom:8px;">🔴 CRITIQUE — Adoption IA</div>
+                        <p style="font-size:1.3rem; margin:0;">Résistance interne au changement</p>
+                        <p style="font-size:1.2rem; color:#888; margin-top:8px;">→ Formation prévue dès Phase 1</p>
+                    </div>
+                    <div style="background:#fff3cd; border-left:8px solid #e6a817; border-radius:12px; padding:20px; text-align:left;">
+                        <div style="font-size:1.2rem; font-weight:bold; color:#9a6700;">🟠 MAJEUR — Presse</div>
+                        <p style="font-size:1.2rem; margin:4px 0 0;">Faibles retombées médias</p>
+                    </div>
+                    <div style="background:#d4edda; border-left:8px solid var(--green); border-radius:12px; padding:20px; text-align:left;">
+                        <div style="font-size:1.2rem; font-weight:bold; color:var(--green);">🟢 FAIBLE — Technique</div>
+                        <p style="font-size:1.2rem; margin:4px 0 0;">Latence CDP · corrigée Phase 1</p>
+                    </div>
+                    <div style="background:#d4edda; border-left:8px solid var(--green); border-radius:12px; padding:20px; text-align:left;">
+                        <div style="font-size:1.2rem; font-weight:bold; color:var(--green);">🟢 FAIBLE — RGPD</div>
+                        <p style="font-size:1.2rem; margin:4px 0 0;">Consentement PWA · corrigé Phase 1</p>
+                    </div>
                 </div>
             </div>
         </section>
