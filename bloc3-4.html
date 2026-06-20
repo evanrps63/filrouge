@@ -13,7 +13,7 @@
             --white: #ffffff;
             --dark: #1a1a1a;
             --red-alert: #d00000;
-            --nb-slides: 30; /* Nombre total de slides */
+            --nb-slides: 25;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -91,78 +91,82 @@
     </template>
 
     <div class="slides-container" id="slider">
-        
-        <!-- MICRO 1: Introduction -->
+
+        <!-- 1. TITRE -->
         <section style="background: linear-gradient(135deg, var(--light-green) 0%, #fff 100%);">
-            <h1 style="font-size: 7rem;">Natuvéris</h1>
+            <h1 style="font-size: 7rem;">Natuvéris Box</h1>
             <h3 style="color: var(--dark); font-size: 3rem;">STRATÉGIE DATA & PILOTAGE</h3>
-            <p style="font-size: 2.5rem; margin-top: 20px;">Blocs 3 & 4 | Fil Rouge 2025-2026</p>
+            <p style="font-size: 2.5rem; margin-top: 20px;">Fil Rouge 2025-2026</p>
             <div style="margin-top: 60px;">
                 <span class="tag">Victoria P.</span><span class="tag">Heleana C.</span><span class="tag">Clara H.</span>
                 <span class="tag">Evan R.</span><span class="tag">Emma F.</span>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Sommaire Visuel</h2>
-            <div class="grid-4">
-                <div class="box"><h4>01</h4><p>Diagnostic & Gouvernance</p></div>
-                <div class="box"><h4>02</h4><p>Automation Marketing</p></div>
-                <div class="box"><h4>03</h4><p>IA & POC RecommAI</p></div>
-                <div class="box"><h4>04</h4><p>Organisation & Pilotage</p></div>
+        <!-- 2. SOMMAIRE -->
+        <section><div class="logo-ph"></div><h2>Notre démarche</h2>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; max-width:1400px;">
+                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">01</h4><p>Diagnostic data</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">02</h4><p>Architecture cible</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">03</h4><p>Scénarios d'automatisation</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center;"><h4 style="font-size:1.5rem;">04</h4><p>Solution IA & POC</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">05</h4><p>Organisation & gouvernance</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">06</h4><p>Calendrier & communication</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">07</h4><p>Risques & pilotage</p></div>
+                <div class="box" style="flex:1; min-width:200px; text-align:center; border-color:var(--terracotta);"><h4 style="font-size:1.5rem; color:var(--terracotta);">08</h4><p>Tableau de bord & amélioration continue</p></div>
             </div>
         </section>
 
+        <!-- 3. PROBLÉMATIQUE -->
         <section><div class="logo-ph"></div><h3 style="font-size: 3.5rem;">LA PROBLÉMATIQUE</h3>
             <h1 style="font-size: 4.5rem; max-width: 1200px;">"Comment transformer la data en expérience personnalisée tout en garantissant une éthique RGPD ?"</h1>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Qualité des données</h2>
+        <!-- 4. DIAGNOSTIC -->
+        <section><div class="logo-ph"></div><h2>Diagnostic : un écosystème data fragmenté</h2>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; max-width:1400px; margin-bottom:20px;">
+                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">92%</span><h4>CRM</h4><p>Base abonnés</p></div>
+                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">88%</span><h4>PWA</h4><p>Comportement</p></div>
+                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">84%</span><h4>Email</h4><p>Engagement</p></div>
+                <div class="box" style="flex:1; min-width:150px; text-align:center;"><span class="big-number" style="font-size:3rem;">85%</span><h4>SAV</h4><p>Satisfaction</p></div>
+                <div class="box" style="flex:1; min-width:150px; text-align:center; border-color:var(--red-alert);"><span class="big-number" style="font-size:3rem; color:var(--red-alert);">76%</span><h4>Social Ads</h4><p>Conversion</p></div>
+                <div class="box" style="flex:1; min-width:150px; text-align:center; border-color:var(--red-alert);"><span class="big-number" style="font-size:3rem; color:var(--red-alert);">80%</span><h4>ESG</h4><p>Carbone</p></div>
+            </div>
+            <div style="display:flex; gap:20px; justify-content:center;">
+                <div style="background:var(--light-green); border-radius:12px; padding:12px 25px; font-size:1.4rem;"><strong>Score global : 84/100</strong></div>
+                <div style="background:#fff3cd; border-radius:12px; padding:12px 25px; font-size:1.4rem;">3 sources prioritaires : SAV · Social Ads · ESG</div>
+            </div>
+        </section>
+
+        <!-- 5. FAILLES CRITIQUES -->
+        <section><div class="logo-ph"></div><h2>Les failles critiques identifiées</h2>
             <div class="grid-4">
-                <div class="box"><span class="big-number">92%</span><h4>CRM</h4><p>Base abonnés</p></div>
-                <div class="box"><span class="big-number">88%</span><h4>PWA</h4><p>Comportement</p></div>
-                <div class="box"><span class="big-number">85%</span><h4>SAV</h4><p>Satisfaction</p></div>
-                <div class="box"><span class="big-number">80%</span><h4>Flux ESG</h4><p>Carbone</p></div>
+                <div class="box box-red"><h4>Doublons</h4><p>Conflits CRM / PWA</p></div>
+                <div class="box box-red"><h4>RGPD</h4><p>Consentement non tracé sur la PWA — risque 4% du CA</p></div>
+                <div class="box box-red"><h4>Latence</h4><p>MAJ 12h-24h, incompatible avec l'automatisation</p></div>
+                <div class="box box-red"><h4>ESG</h4><p>Aucun connecteur, pas d'automatisation possible</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Les 4 Failles</h2>
-            <div class="grid-4">
-                <div class="box box-red"><h4>🔴 Doublons</h4><p>Conflits CRM/PWA</p></div>
-                <div class="box box-red"><h4>⏱️ Latence</h4><p>MAJ (12h-24h)</p></div>
-                <div class="box box-red"><h4>📋 SAV</h4><p>Données incomplètes</p></div>
-                <div class="box box-red"><h4>🌿 ESG</h4><p>Pas d'automatisation</p></div>
-            </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>Risques RGPD</h2>
-            <div class="grid-3">
-                <div class="box box-red"><h3>Consentement</h3><p>PWA non tracé. Risque 4% CA.</p></div>
-                <div class="box box-red"><h3>Chiffrement</h3><p>Flux non sécurisés en transit.</p></div>
-                <div class="box box-red"><h3>Purge</h3><p>Absence d'auto-suppression.</p></div>
-            </div>
-        </section>
-
-        <!-- MICRO 2: Architecture & Scénarios -->
-        <section style="background: var(--light-green);"><div class="logo-ph"></div><h2>Architecture Cible</h2>
+        <!-- 6. ARCHITECTURE CIBLE -->
+        <section style="background: var(--light-green);"><div class="logo-ph"></div><h2>Architecture cible</h2>
             <div class="arch-flow">
                 <div class="arch-box">SOURCES</div><div class="arrow">→</div>
                 <div class="arch-box">NETTOYAGE</div><div class="arrow">→</div>
-                <div class="arch-box" style="border-color: var(--terracotta)">IA ENGINE</div><div class="arrow">→</div>
+                <div class="arch-box" style="border-color: var(--terracotta);">IA ENGINE</div><div class="arrow">→</div>
                 <div class="arch-box">CDP ACTIVATION</div>
             </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>Gouvernance</h2>
-            <div class="grid-3">
+            <div class="grid-3" style="margin-top:40px;">
                 <div class="box"><h4>Outils</h4><p>CDP, PredictX, RecommAI</p></div>
                 <div class="box"><h4>Rôles</h4><p>Data Owner, Steward, DPO</p></div>
                 <div class="box"><h4>Règles</h4><p>Qualité 95/100, Purge auto</p></div>
             </div>
         </section>
 
+        <!-- 7. SCÉNARIO 1 -->
         <section><div class="logo-ph"></div><h2>Scénario 1 : Anti-Churn</h2>
             <div class="box" style="width: 100%; max-width: 1000px; text-align: center;">
-                <h3 style="color: var(--red-alert)">ALERTE RISQUE > 70%</h3>
+                <h3 style="color: var(--red-alert);">ALERTE RISQUE > 70%</h3>
                 <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px;">
                     <div class="tag">J+0 : Email</div><div class="tag">J+4 : SMS</div><div class="tag">J+8 : NPS</div>
                 </div>
@@ -170,6 +174,7 @@
             </div>
         </section>
 
+        <!-- 8. SCÉNARIO 2 -->
         <section><div class="logo-ph"></div><h2>Scénario 2 : Add-On</h2>
             <div class="grid-3">
                 <div class="box"><h4>Déclencheur</h4><p>Consultation produit sans achat</p></div>
@@ -178,6 +183,7 @@
             </div>
         </section>
 
+        <!-- 9. SCÉNARIO 3 -->
         <section><div class="logo-ph"></div><h2>Scénario 3 : Abandon</h2>
             <div class="grid-2" style="display: flex; gap: 40px;">
                 <div class="box" style="flex: 1;"><h4>Panier simple</h4><p>Relance à T+30 min</p></div>
@@ -185,162 +191,157 @@
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Synthèse Scénarios</h2>
+        <!-- 10. SYNTHÈSE SCÉNARIOS -->
+        <section><div class="logo-ph"></div><h2>Point commun : une logique RGPD-first</h2>
             <table>
-                <tr><th>Cible</th><th>Objectif</th><th>Base Légale</th></tr>
-                <tr><td>Anti-Churn</td><td>Fidéliser</td><td>Intérêt Légitime</td></tr>
-                <tr><td>Add-on</td><td>Panier +20%</td><td>Consentement</td></tr>
-                <tr><td>Abandon</td><td>Récup. 15%</td><td>Contrat</td></tr>
+                <tr><th>Scénario</th><th>Objectif</th><th>Base Légale</th><th>KPI cible</th></tr>
+                <tr><td>Anti-Churn</td><td>Fidéliser</td><td>Intérêt Légitime</td><td>Rétention > 80%</td></tr>
+                <tr><td>Add-on</td><td>Panier +20%</td><td>Consentement</td><td>Conversion > 8%</td></tr>
+                <tr><td>Abandon</td><td>Récupérer</td><td>Contrat</td><td>Récup. 15%</td></tr>
             </table>
         </section>
 
-        <!-- MICRO 3: IA & POC -->
-        <section><div class="logo-ph"></div><h2>Le Choix de l'IA</h2>
+        <!-- 11. SOLUTIONS IA -->
+        <section><div class="logo-ph"></div><h2>Choisir la bonne solution IA</h2>
+            <table style="margin-bottom:20px;">
+                <tr><th>Solution</th><th>Usage principal</th><th>Complexité</th><th>Priorité</th></tr>
+                <tr><td><strong>RecommAI</strong></td><td>Personnalisation add-on</td><td>Moyenne</td><td><span class="tag" style="font-size:1.1rem;">✅ N°1</span></td></tr>
+                <tr><td><strong>PredictX</strong></td><td>Score anti-churn</td><td>Faible</td><td><span class="tag" style="font-size:1.1rem;">✅ N°2</span></td></tr>
+                <tr><td>ContentGen</td><td>Production contenu</td><td>Élevée</td><td style="color:#aaa;">Différé</td></tr>
+            </table>
+            <p style="font-size:1.4rem; color:#666;">2 priorités retenues pour leur ROI immédiat et leur compatibilité RGPD</p>
+        </section>
+
+        <!-- 12. CHOIX POC -->
+        <section><div class="logo-ph"></div><h2>Le POC RecommAI</h2>
             <div class="grid-3">
-                <div class="box"><h3>PredictX</h3><p>Focus Rétention</p></div>
-                <div class="box" style="border-color: var(--terracotta); transform: scale(1.1);"><h3>RecommAI</h3><p><strong>PRIORITÉ N°1</strong></p></div>
-                <div class="box" style="opacity: 0.5;"><h3>ContentGen</h3><p>Prod. Contenu</p></div>
+                <div class="box"><h4>Choix</h4><p>RecommAI sélectionné pour son impact immédiat sur les ventes add-on</p></div>
+                <div class="box" style="border-color:var(--terracotta);"><h4>Objectif</h4><p>Augmenter le panier moyen de +20% via personnalisation IA</p></div>
+                <div class="box"><h4>Périmètre</h4><p>Test limité à 6 semaines · 1 000 abonnés · 1 500 €</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Pourquoi RecommAI ?</h2>
-            <div class="grid-2" style="display: flex; gap: 40px;">
-                <div class="box"><h4>Impact Direct</h4><p>Augmente les ventes add-on immédiatement.</p></div>
-                <div class="box"><h4>Expérience</h4><p>Personnalisation réelle vs catalogue générique.</p></div>
-            </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>POC (Test 6 sem.)</h2>
-            <div class="grid-3">
-                <div class="box"><h4>Groupe TEST</h4><p>500 abonnés ciblés</p></div>
-                <div class="box"><h4>TÉMOIN</h4><p>500 abonnés neutres</p></div>
+        <!-- 13. POC EN CHIFFRES -->
+        <section><div class="logo-ph"></div><h2>Le POC en chiffres</h2>
+            <div class="grid-4">
+                <div class="box"><h4>Groupe TEST</h4><p>500 abonnés ciblés par RecommAI</p></div>
+                <div class="box"><h4>TÉMOIN</h4><p>500 abonnés sans personnalisation</p></div>
                 <div class="box"><h4>Budget</h4><p>1 500 €</p></div>
+                <div class="box"><h4>Durée</h4><p>6 semaines</p></div>
+            </div>
+            <div class="grid-3" style="margin-top:30px;">
+                <div class="box" style="background:#d4edda; text-align:center;"><h4>VALIDE</h4><p>Déploiement total</p></div>
+                <div class="box" style="background:#fff3cd; text-align:center;"><h4>PARTIEL</h4><p>Ajustement IA</p></div>
+                <div class="box" style="background:#f8d7da; text-align:center;"><h4>ÉCHEC</h4><p>Arrêt solution</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Fonctionnement POC</h2>
-            <div class="arch-flow">
-                <div class="arch-box">Consultation</div><div class="arrow">→</div>
-                <div class="arch-box" style="background: var(--terracotta); color: white;">Suggestion IA</div><div class="arrow">→</div>
-                <div class="arch-box">Achat Add-on</div>
-            </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>KPIs de succès</h2>
+        <!-- 14. TRAJECTOIRE DE DÉPLOIEMENT -->
+        <section><div class="logo-ph"></div><h2>Trajectoire de déploiement</h2>
             <div class="grid-3">
-                <div class="box"><span class="big-number">8%</span><h4>Conversion</h4></div>
-                <div class="box"><span class="big-number">+20%</span><h4>Panier moyen</h4></div>
-                <div class="box"><span class="big-number">15%</span><h4>Clics PWA</h4></div>
+                <div class="box"><h4>Phase 1 — Juillet/Août</h4><p>Cadrage · Architecture CDP · Correction failles data · Lancement POC</p></div>
+                <div class="box" style="border-color:var(--terracotta);"><h4>Phase 2 — Septembre</h4><p>Déploiement scénarios · Activation RecommAI · Premiers résultats POC</p></div>
+                <div class="box"><h4>Phase 3 — Oct/Déc</h4><p>Décision post-POC · Scale IA · Bilan semestriel · Capitalisation</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Décision Post-POC</h2>
-            <div class="grid-3">
-                <div class="box" style="background: #d4edda;"><h4>VALIDE</h4><p>Déploiement</p></div>
-                <div class="box" style="background: #fff3cd;"><h4>PARTIEL</h4><p>Ajustement IA</p></div>
-                <div class="box" style="background: #f8d7da;"><h4>ECHEC</h4><p>Arrêt solution</p></div>
-            </div>
+        <!-- 15. TRANSITION -->
+        <section style="background: var(--dark); color: white;">
+            <div class="logo-ph logo-white"></div>
+            <h2 style="color: white; font-size: 3rem;">La data bien gouvernée.</h2>
+            <h2 style="color: var(--terracotta); font-size: 3rem; margin-top: 10px;">Maintenant, organisons l'exécution.</h2>
+            <p style="color: rgba(255,255,255,0.6); margin-top: 40px; font-size: 1.6rem;">Organisation · Calendrier · Risques · Pilotage</p>
         </section>
 
-        <!-- MICRO 4: Organisation -->
-        <section><div class="logo-ph"></div><h2>Organisation</h2>
-            <div style="display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 1000px;">
-                <div class="arch-box" style="background: var(--dark); color: white;">DIRECTION / SPONSORS</div>
-                <div class="arrow" style="font-size: 2rem;">↓</div>
-                <div class="arch-box" style="background: var(--terracotta); color: white;">CHEF DE PROJET (Coordination)</div>
-                <div class="arrow" style="font-size: 2rem;">↓</div>
+        <!-- 16. ORGANIGRAMME -->
+        <section><div class="logo-ph"></div><h2>Organisation du projet</h2>
+            <div style="display: flex; flex-direction: column; gap: 25px; width: 100%; max-width: 900px;">
+                <div class="arch-box" style="background: var(--dark); color: white; text-align:center;">DIRECTION / SPONSORS</div>
+                <div class="arrow" style="font-size: 2rem; text-align:center;">↓</div>
+                <div class="arch-box" style="background: var(--terracotta); color: white; text-align:center;">CHEF DE PROJET — Coordination & pilotage</div>
+                <div class="arrow" style="font-size: 2rem; text-align:center;">↓</div>
                 <div style="display: flex; gap: 20px;">
-                    <div class="box" style="flex:1; text-align: center;">Marketing</div>
-                    <div class="box" style="flex:1; text-align: center;">Data</div>
-                    <div class="box" style="flex:1; text-align: center;">RSE</div>
+                    <div class="box" style="flex:1; text-align:center;"><h4>Marketing</h4><p>Campagnes & automation</p></div>
+                    <div class="box" style="flex:1; text-align:center;"><h4>Data</h4><p>CDP & gouvernance</p></div>
+                    <div class="box" style="flex:1; text-align:center;"><h4>RSE</h4><p>Impact & partenaires</p></div>
                 </div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Matrice RACI</h2>
+        <!-- 17. RACI (ANNEXE) -->
+        <section><div class="logo-ph"></div><h2>Matrice RACI <span style="font-size:1.8rem; color:#aaa; font-weight:normal;">— Annexe</span></h2>
             <table>
-                <tr><th>Livrable</th><th>Chef Proj</th><th>Data</th><th>Marketing</th></tr>
-                <tr><td>Stratégie Data</td><td>R</td><td>C</td><td>C</td></tr>
-                <tr><td>Automation</td><td>A</td><td>R</td><td>C</td></tr>
-                <tr><td>Reporting ESG</td><td>C</td><td>C</td><td>R</td></tr>
+                <tr><th>Livrable</th><th>Chef Projet</th><th>Data</th><th>Marketing</th><th>RSE</th></tr>
+                <tr><td>Stratégie Data</td><td>R</td><td>C</td><td>C</td><td>I</td></tr>
+                <tr><td>Automation</td><td>A</td><td>R</td><td>C</td><td>I</td></tr>
+                <tr><td>POC RecommAI</td><td>A</td><td>R</td><td>C</td><td>I</td></tr>
+                <tr><td>Reporting ESG</td><td>C</td><td>C</td><td>I</td><td>R</td></tr>
             </table>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Rythme de Pilotage</h2>
+        <!-- 18. CALENDRIER DES INSTANCES -->
+        <section><div class="logo-ph"></div><h2>Calendrier des instances</h2>
             <div class="grid-3">
-                <div class="box"><h4>Lancement</h4><p>Juillet (3h)</p></div>
-                <div class="box"><h4>Mensuel</h4><p>Comité (1h30)</p></div>
-                <div class="box"><h4>Flash</h4><p>Hebdo (15min)</p></div>
+                <div class="box"><h4>Lancement</h4><p>Juillet — Réunion de cadrage (3h)<br>Validation charte & feuille de route</p></div>
+                <div class="box" style="border-color:var(--terracotta);"><h4>COPIL Mensuel</h4><p>1h30 — Suivi KPIs<br>Arbitrages budget & priorisation</p></div>
+                <div class="box"><h4>Point Flash Hebdo</h4><p>15 min — Daily stand-up<br>Détecte les blocages très tôt</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Kit Outils</h2>
-            <div class="grid-3">
-                <div class="box"><h4>Notion</h4><p>Kanban & REX</p></div>
-                <div class="box"><h4>Teams</h4><p>Flux & Daily</p></div>
-                <div class="box"><h4>Base Doc</h4><p>Unique & Centralisée</p></div>
-            </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>Communication</h2>
+        <!-- 19. COMMUNICATION -->
+        <section><div class="logo-ph"></div><h2>Canaux de communication</h2>
             <div class="grid-2" style="display: flex; gap: 40px;">
-                <div class="box"><h4>INTERNE</h4><p>Teams / Emails / Daily</p></div>
-                <div class="box"><h4>EXTERNE</h4><p>Push / Newsletters / Médias</p></div>
+                <div class="box" style="flex:1;"><h4>INTERNE</h4><p>Teams / Emails / Daily stand-up<br>Notion Kanban / Base doc centralisée</p></div>
+                <div class="box" style="flex:1; border-color:var(--terracotta);"><h4>EXTERNE</h4><p>Push PWA / Newsletter / Médias<br>Influenceurs / Relations Presse</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>RSE Partenaires</h2>
-            <div class="grid-3">
-                <div class="box"><h4>Sourcing</h4><p>Hors UE exclu</p></div>
-                <div class="box"><h4>Web</h4><p>WCAG AA</p></div>
-                <div class="box"><h4>Inclusion</h4><p>Audit ESAT</p></div>
+        <!-- 20. GESTION DES RISQUES -->
+        <section><div class="logo-ph"></div><h2>Gestion des risques — Heat Map</h2>
+            <div style="display:flex; gap:40px; align-items:flex-start; width:100%; max-width:1300px;">
+                <div style="flex:1;">
+                    <p style="font-size:1.4rem; margin-bottom:20px;"><strong>Méthode :</strong> Probabilité × Impact sur les 6 jalons</p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; height:200px;">
+                        <div style="background:#f8d7da; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🔴 CRITIQUE</div>
+                        <div style="background:#fff3cd; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🟠 MAJEUR</div>
+                        <div style="background:#d1ecf1; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🟡 MOYEN</div>
+                        <div style="background:#d4edda; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:bold;">🟢 FAIBLE</div>
+                    </div>
+                </div>
+                <div style="flex:2;">
+                    <p style="font-size:1.4rem; margin-bottom:15px;"><strong>Top 3 risques critiques</strong></p>
+                    <div class="box box-red" style="margin-bottom:15px;"><h4>Influence</h4><p>Bad buzz incompatible avec les valeurs — Plan de crise préparé</p></div>
+                    <div class="box box-red" style="margin-bottom:15px;"><h4>Budget ADS</h4><p>Dépassement probable — Réserve de 3 000 € allouée</p></div>
+                    <div class="box box-red"><h4>Adoption IA</h4><p>Résistance interne — Formation équipe prévue dès Phase 1</p></div>
+                </div>
             </div>
         </section>
 
-        <!-- MICRO 5: Risques & Pilotage -->
-        <section><div class="logo-ph"></div><h2>Matrice Risques</h2>
-            <p>Analyse de probabilité et d'impact sur les 6 jalons.</p>
-            <div class="grid-4" style="height: 100px; align-items: stretch;">
-                <div style="background: #ffcccc; padding: 20px;">CRITIQUE</div>
-                <div style="background: #fff3cd; padding: 20px;">MAJEUR</div>
-                <div style="background: #d1ecf1; padding: 20px;">MOYEN</div>
-                <div style="background: #d4edda; padding: 20px;">FAIBLE</div>
-            </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>Top 3 Risques</h2>
-            <div class="grid-3">
-                <div class="box box-red"><h4>Influence</h4><p>Bad buzz / Valeurs</p></div>
-                <div class="box box-red"><h4>Presse</h4><p>Faibles retombées</p></div>
-                <div class="box box-red"><h4>Budget</h4><p>Dépassement ADS</p></div>
-            </div>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>Tableau de Pilotage</h2>
+        <!-- 21. PILOTER LES PARTENAIRES -->
+        <section><div class="logo-ph"></div><h2>Piloter l'écosystème partenaires</h2>
             <div class="grid-4">
-                <div class="box"><span class="big-number">58%</span><p>Avancement</p></div>
-                <div class="box"><span class="big-number">3.5</span><p>Vélocité</p></div>
-                <div class="box"><span class="big-number">50%</span><p>Budget consommé</p></div>
-                <div class="box"><span class="big-number">1/5</span><p>Jalons terminés</p><p style="font-size:1.1rem; color:var(--terracotta); margin-top:8px;">Phase active de déploiement</p></div>
+                <div class="box"><h4>Onboarding structuré</h4><p>Brief qualité, charte RSE signée, intégration Notion</p></div>
+                <div class="box"><h4>Module RSE</h4><p>Sourcing UE uniquement · WCAG AA · Audit ESAT annuel</p></div>
+                <div class="box"><h4>Outils Notion</h4><p>Kanban partenaires · Base doc commune · REX partagé</p></div>
+                <div class="box"><h4>Rituels agiles</h4><p>Point mensuel · Rétrospective trimestrielle · NPS partenaire</p></div>
             </div>
         </section>
 
-        <section><div class="logo-ph"></div><h2>Agilité (Burndown)</h2>
-            <div style="width: 100%; max-width: 800px; height: 300px; border-left: 5px solid var(--dark); border-bottom: 5px solid var(--dark); position: relative; margin: 40px auto;">
-                <div style="position:absolute; top:0; left:0; width:100%; height:100%; border-top: 4px dashed #ccc; transform: rotate(18deg); transform-origin: top left;"></div>
-                <div style="position:absolute; top:8px; right:60px; font-size:1.1rem; color:#aaa; display:flex; align-items:center; gap:6px;">→ <span>Trajectoire idéale</span></div>
-                <div style="position:absolute; top:0; left:0; width:65%; height:100%; border-top: 6px solid var(--terracotta); transform: rotate(14deg); transform-origin: top left;"></div>
-                <p style="position: absolute; bottom: -40px; right: 0;">TEMPS (S2 2026)</p>
-                <p style="position: absolute; top: -40px; left: 0;">TÂCHES RESTANTES</p>
-            </div>
-            <p>Vitesse moyenne : 3.5 tâches / sprint</p>
-        </section>
-
-        <section><div class="logo-ph"></div><h2>Rétrospective REX</h2>
+        <!-- 22. TABLEAU DE BORD -->
+        <section><div class="logo-ph"></div><h2>Tableau de bord intelligent</h2>
             <div class="grid-3">
-                <div class="box" style="border-color: #2d5a27;"><h4>🟢 START</h4><p>Nouvelles pratiques</p></div>
-                <div class="box" style="border-color: #d00000;"><h4>🔴 STOP</h4><p>Freins d'efficacité</p></div>
-                <div class="box" style="border-color: #0077b6;"><h4>🔵 CONTINUE</h4><p>Ce qui fonctionne</p><p style="margin-top:12px;">→ Daily stand-up de 15 min<br><span style="font-size:1.2rem; color:#0077b6;">Détecte les blocages très tôt</span></p></div>
+                <div class="box" style="border-color:var(--green);"><h4>Volet 1 — Performance</h4><p><span class="big-number" style="font-size:3rem;">58%</span>Avancement · Vélocité 3.5 · Budget 50%</p></div>
+                <div class="box" style="border-color:var(--terracotta);"><h4>Volet 2 — Jalons</h4><p><span class="big-number" style="font-size:3rem;">1/5</span>Phase active de déploiement</p></div>
+                <div class="box" style="border-color:#0077b6;"><h4>Volet 3 — Impact</h4><p>CO₂ évité · NPS · Taux rétention · Score Yuka</p></div>
+            </div>
+        </section>
+
+        <!-- 23. BOUCLE D'AMÉLIORATION CONTINUE -->
+        <section><div class="logo-ph"></div><h2>Boucle d'amélioration continue</h2>
+            <div class="grid-3">
+                <div class="box"><h4>Répriorisation</h4><p>Repriorisation du backlog selon les écarts KPI détectés chaque sprint</p></div>
+                <div class="box" style="border-color:var(--terracotta);"><h4>Réaffectation</h4><p>Réaffectation de ressources si la vélocité est en baisse</p></div>
+                <div class="box"><h4>Capitalisation</h4><p>Rétrospectives · Mise à jour charte · Kit outils enrichi</p></div>
             </div>
         </section>
 
@@ -396,7 +397,7 @@
         });
 
         let currentSlide = 0;
-        const totalSlides = 30; 
+        const totalSlides = 25;
         const slider = document.getElementById('slider');
         const progressBar = document.getElementById('progressBar');
 
