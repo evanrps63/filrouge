@@ -377,29 +377,43 @@
 
         <section>
             <h2>Le Programme "21 Jours"</h2>
-            <div style="background: var(--light-green); padding: 50px; border-radius: 30px;">
-                <p>1 Micro-défi par semaine envoyé via PWA / Newsletter.</p>
-                <div class="timeline-large">
-                    <div class="time-step">Sem. 1 : Cuisine</div>
-                    <div class="time-step">Sem. 2 : Hygiène</div>
-                    <div class="time-step">Sem. 3 : Entretien</div>
-                </div>
-                <div style="margin-top:30px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
-                    <div style="background:white; border-radius:16px; padding:20px 25px; flex:1; min-width:220px; border-top:4px solid var(--green);">
-                        <strong style="color:var(--green);">Vidéos quotidiennes</strong>
-                        <p style="font-size:1.2rem; margin-top:8px;">Tips éco en 30 secondes, envoyés chaque jour via la PWA.</p>
-                    </div>
-                    <div style="background:white; border-radius:16px; padding:20px 25px; flex:1; min-width:220px; border-top:4px solid var(--terracotta);">
-                        <strong style="color:var(--terracotta);">IA Life Coach</strong>
-                        <p style="font-size:1.2rem; margin-top:8px;">Recommandations personnalisées selon les habitudes de l'abonné.</p>
-                    </div>
-                    <div style="background:white; border-radius:16px; padding:20px 25px; flex:1; min-width:220px; border-top:4px solid var(--green);">
-                        <strong style="color:var(--green);">Quiz Intelligent</strong>
-                        <p style="font-size:1.2rem; margin-top:8px;">À J1 → 2 options de personnalisation de la prochaine box.</p>
+            <div style="display:flex; gap:30px; width:100%; max-width:1300px; align-items:stretch;">
+
+                <!-- Colonne gauche : vidéos quotidiennes -->
+                <div style="flex:1; background:var(--light-green); border-radius:24px; padding:35px 30px; display:flex; flex-direction:column; gap:18px;">
+                    <div style="font-size:2.8rem;">🎬</div>
+                    <h3 style="color:var(--green); font-size:1.8rem; margin:0;">Vidéos quotidiennes</h3>
+                    <p style="font-size:1.3rem; line-height:1.6; margin:0;">Chaque jour pendant 21 jours, une courte vidéo envoyée via la PWA avec une astuce concrète pour une <strong>rentrée plus responsable</strong>.</p>
+                    <div style="display:flex; flex-direction:column; gap:10px; margin-top:auto;">
+                        <div style="background:white; border-radius:12px; padding:10px 16px; font-size:1.2rem;"> Sem. 1 — Cuisine & Zéro Gaspillage</div>
+                        <div style="background:white; border-radius:12px; padding:10px 16px; font-size:1.2rem;"> Sem. 2 — Hygiène & Produits naturels</div>
+                        <div style="background:white; border-radius:12px; padding:10px 16px; font-size:1.2rem;"> Sem. 3 — Entretien & Maison saine</div>
                     </div>
                 </div>
-                <p style="margin-top:30px;"><strong>KPI :</strong> Taux de rétention cible > 80% sur 60 jours.</p>
+
+                <!-- Colonne centre : IA Life Coach -->
+                <div style="flex:1.2; background:var(--green); border-radius:24px; padding:35px 30px; display:flex; flex-direction:column; gap:18px; color:white;">
+                    <div style="font-size:2.8rem;">🤖</div>
+                    <h3 style="color:white; font-size:1.8rem; margin:0;">IA — Coach de Vie</h3>
+                    <p style="font-size:1.3rem; line-height:1.6; margin:0; opacity:0.9;">L'IA ne se contente pas de suggérer : elle <strong style="color:#b8e89a;">accompagne</strong> l'abonné au quotidien, analyse ses habitudes et ajuste les défis en temps réel pour rester motivant sur toute la durée.</p>
+                    <div style="background:rgba(255,255,255,0.15); border-radius:14px; padding:16px 20px; margin-top:auto;">
+                        <p style="font-size:1.2rem; margin:0; font-style:italic;">"Tu préfères les recettes rapides ou les rituels du soir ?" — L'IA s'adapte à toi.</p>
+                    </div>
+                </div>
+
+                <!-- Colonne droite : Quiz intelligent -->
+                <div style="flex:1; background:var(--terracotta); border-radius:24px; padding:35px 30px; display:flex; flex-direction:column; gap:18px; color:white;">
+                    <div style="font-size:2.8rem;">✏️</div>
+                    <h3 style="color:white; font-size:1.8rem; margin:0;">Quiz Intelligent</h3>
+                    <p style="font-size:1.3rem; line-height:1.6; margin:0; opacity:0.9;">À J1, l'abonné répond à un quiz rapide. L'IA analyse ses réponses et propose <strong style="color:#fde8e1;">2 options de box personnalisées</strong> parfaitement adaptées à son profil.</p>
+                    <div style="display:flex; gap:10px; margin-top:auto;">
+                        <div style="flex:1; background:rgba(255,255,255,0.2); border-radius:12px; padding:12px; text-align:center; font-size:1.2rem; font-weight:bold;">Option A</div>
+                        <div style="flex:1; background:rgba(255,255,255,0.2); border-radius:12px; padding:12px; text-align:center; font-size:1.2rem; font-weight:bold;">Option B</div>
+                    </div>
+                </div>
+
             </div>
+            <p style="margin-top:25px; font-size:1.3rem;"><strong>KPI :</strong> Taux de rétention cible > 80% sur 60 jours.</p>
         </section>
 
         <!-- PERSONNE 4 -->
